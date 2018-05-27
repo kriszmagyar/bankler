@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+import { login, logout } from '../store/actions'
 
 class Router extends Component {
     render() {
     
         return (
             <Switch>
-                <Redirect exact from = '/' to = '/login' />
+                <Route exact path = '/' render = {() => 'Landing page'}/>
                 <Route exact path = '/login' render = { () => 
-                    <button onClick = {this.props.loginUser}>Login</button>
+                    <div>
+                        <button onClick = {this.props.loginUser}>Login</button>
+                        <button onClick = {this.props.logoutUser}>Logout</button>
+                    </div>
                 } />
-                <Route path = '/' render={() => 404} />
+                <Route path = '/' render = {() => 404} />
             </Switch>
         )
     }
@@ -25,7 +30,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loginUser: () => dispatch({type: 'LOGIN'})
+        loginUser: () => dispatch(login()),
+        logoutUser: () => dispatch(logout())
     }
 }
 
