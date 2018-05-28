@@ -2,22 +2,23 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { login, logout } from '../store/actions'
+import { LandingPage } from './LandingPage'
+import LoginPage from './LoginPage'
+import { AppPage } from './AppPage'
+import { NoMatchPage } from './NoMatchPage'
 
 class Router extends Component {
     render() {
-    
+
         return (
-            <Switch>
-                <Route exact path = '/' render = {() => 'Landing page'}/>
-                <Route exact path = '/login' render = { () => 
-                    <div>
-                        <button onClick = {this.props.loginUser}>Login</button>
-                        <button onClick = {this.props.logoutUser}>Logout</button>
-                    </div>
-                } />
-                <Route path = '/' render = {() => 404} />
-            </Switch>
+            <div>
+                <Switch>
+                    <Route exact path = '/' component = { LandingPage } />
+                    <Route exact path = '/login' component = { LoginPage } />
+                    <Route exact path = '/accounts' component = { AppPage } />
+                    <Route component = { NoMatchPage } />
+                </Switch>
+            </div>
         )
     }
 }
@@ -28,11 +29,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        loginUser: () => dispatch(login()),
-        logoutUser: () => dispatch(logout())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Router)
+export default connect(mapStateToProps)(Router)
