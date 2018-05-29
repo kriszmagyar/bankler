@@ -1,0 +1,9 @@
+nav {
+    width: 100%;
+    background-color: orange;
+    display: flex;
+}
+
+nav a {
+    padding: 15px;
+}

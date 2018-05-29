@@ -6,7 +6,7 @@ import { login, logout } from '../store/actions'
 import { InputText } from '../components/UI/Inputs';
 import { Button } from '../components/UI/Button';
 
-class LoginPage extends Component {
+class SignUpPage extends Component {
     
     auth = () => {
         this.props.history.push('/accounts')
@@ -18,11 +18,11 @@ class LoginPage extends Component {
         return (
             <div className='content-center'>
                 <form>
-                    <InputText type='email' name='userEmail' placeholder='Email' required/>
-                    <InputText type='password' name='userPassword' placeholder='Password' required/>
-                    {/* <div><a className='small'>Forgot your password?</a></div> */}
-                    <Button text='Get Started' onClick={this.auth}/>
-                    {/* <div><a className='small'>Create account</a></div> */}
+                    <InputText type='text' name='userFirstName' placeholder='First name'/>
+                    <InputText type='text' name='userLastName' placeholder='Last name'/>
+                    <InputText type='email' name='userEmail' placeholder='Email'/>
+                    <InputText type='password' name='userPassword' placeholder='Password'/>
+                    <Button text='Sign Up!' onClick={this.auth}/>
                 </form>
             </div>
         )
@@ -36,4 +36,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(LoginPage)
+export default connect(null, mapDispatchToProps)(SignUpPage)
