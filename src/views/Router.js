@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { LandingPage } from './LandingPage'
 import LoginPage from './LoginPage'
 import SignUpPage from './SignUpPage';
-import { AppPage } from './AppPage'
+import { AppPage } from './app/AppPage'
 import { NoMatchPage } from './NoMatchPage'
 import { NavTop } from '../components/Nav';
 
