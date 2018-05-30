@@ -18,8 +18,8 @@ class LoginPage extends Component {
         return (
             <div className='content-center'>
                 <form>
-                    <InputText type='email' name='userEmail' placeholder='Email' required/>
-                    <InputText type='password' name='userPassword' placeholder='Password' required/>
+                    <InputText type='email' name='userEmail' placeholder='Email'/>
+                    <InputText type='password' name='userPassword' placeholder='Password'/>
                     {/* <div><a className='small'>Forgot your password?</a></div> */}
                     <Button text='Get Started' onClick={this.auth}/>
                     {/* <div><a className='small'>Create account</a></div> */}

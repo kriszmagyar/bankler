@@ -6,7 +6,7 @@ export const updateObject = (oldObject, updatedValues) => {
 }
 
 // Speed up calls to hasOwnProperty
-var hasOwnProperty = Object.prototype.hasOwnProperty;
+const hasOwnProperty = Object.prototype.hasOwnProperty;
 export const isEmptyObj = (obj) => {
 
     // null and undefined are "empty"
@@ -25,7 +25,7 @@ export const isEmptyObj = (obj) => {
     // Otherwise, does it have any properties of its own?
     // Note that this doesn't handle
     // toString and valueOf enumeration bugs in IE < 9
-    for (var key in obj) {
+    for (let key in obj) {
         if (hasOwnProperty.call(obj, key)) return false;
     }
 

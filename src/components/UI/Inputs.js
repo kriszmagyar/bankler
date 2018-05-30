@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './Inputs.css'
 
@@ -16,4 +17,11 @@ export const InputText = props => {
         </div>
     )
 
+}
+
+InputText.propTypes = {
+    type: PropTypes.oneOf(['email', 'password', 'text']).isRequired,
+    name: PropTypes.string,
+    placeholder: PropTypes.string,
+    required: PropTypes.bool
 }
