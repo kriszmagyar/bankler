@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { instance as axios } from '../../axios'
 import { Loader } from '../../components/Loader'
+import { AccountsView } from './AccountsView';
 
 export class AppPage extends Component {
 
@@ -27,10 +28,9 @@ export class AppPage extends Component {
     render() {
 
         if (this.state.isCurrentlyLoading) return <Loader />
-        console.log(this.state)
         return (
             <div>
-                {this.state.accounts.account1.name}
+                <AccountsView data={this.state.accounts}/>
             </div>
         )
     }
