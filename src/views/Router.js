@@ -5,7 +5,8 @@ import { connect } from 'react-redux'
 import { LandingPage } from './LandingPage'
 import LoginPage from './LoginPage'
 import SignUpPage from './SignUpPage';
-import { AppPage } from './app/AppPage'
+import AccountsView from './app/AccountsView'
+import { AccountHistoryView } from './app/AccountHistoryView'
 import { NoMatchPage } from './NoMatchPage'
 import { NavTop } from '../components/Nav';
 
@@ -19,7 +20,8 @@ class Router extends Component {
                     <Route exact path = '/' component = { LandingPage } />
                     <Route exact path = '/login' component = { LoginPage } />
                     <Route exact path = '/signup' component = { SignUpPage } />
-                    <Route exact path = '/accounts' component = { AppPage } />
+                    <Route exact path = '/accounts' component = { AccountsView } />
+                    <Route exact path = '/accounts/:id' component = { AccountHistoryView } />
                     <Route component = { NoMatchPage } />
                 </Switch>
             </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import './Account.css'
 
-import { Button } from '../../components/UI/Button'
+import { Button } from '../UI/Button'
 
 export const Account = props => {
 
@@ -13,7 +13,7 @@ export const Account = props => {
             <div>{props.currency}</div>
             <div>{props.cash.toLocaleString()}</div>
             <div>{props.number}</div>
-            <Button text = 'Details'/>
+            <Button text = 'Details' onClick={props.onClick}/>
         </div>
     )
 

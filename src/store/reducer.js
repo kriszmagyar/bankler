@@ -3,7 +3,8 @@ import { updateObject } from '../utility'
 
 //Default state
 const initialState =  {
-    isLoggedIn: false
+    isLoggedIn: false,
+    accounts: {}
 }
 
 //Main reducer function
@@ -12,6 +13,7 @@ export const reducer = (state = initialState, action) => {
 
         case actionTypes.LOGIN : return login(state, action)
         case actionTypes.LOGOUT : return logout(state, action)
+        case actionTypes.UPDATE_ACOOUNTS : return updateAccounts(state, action)
         
         default : return state
     }
@@ -23,4 +25,7 @@ const login = (state, action) => {
 }
 const logout = (state, action) => {
     return updateObject(state, { isLoggedIn: false })
+}
+const updateAccounts = (state, action) => {
+    return updateObject(state, { accounts: action.accounts})
 }
