@@ -23,17 +23,18 @@ const NavTop = props => {
                         <li className="item">
                             <Link className='link' to='/'>Home</Link>
                         </li>
-                        <li className="item">
-                            <Link className='link' to='/login'>Login</Link>
-                        </li>
-                        <li className="item" data-target="#myModal2">
-                            <Link className='link' to='/signup'>Sign Up</Link>
-                        </li>
                         { props.isLoggedIn ? (
-                        <li className="item">
-                            <Link className='link' to='/accounts'>Accounts</Link>
-                        </li>
-                        ) : null}
+                            <li className="item">
+                                <Link className='link' to='/accounts'>Accounts</Link>
+                            </li>
+                        ) : [
+                            <li key='1' className="item">
+                                <Link className='link' to='/login'>Login</Link>
+                            </li>,
+                            <li key='2' className="item" data-target="#myModal2">
+                                <Link className='link' to='/signup'>Sign Up</Link>
+                            </li>
+                        ]}
                     </ul>
                 </div>
             </div>

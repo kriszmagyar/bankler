@@ -7,6 +7,7 @@ import { isEmptyObj } from '../../utility'
 
 import { Loader } from '../../components/Loader'
 import { HistoryItem } from '../../components/Account/HistroyItem'
+import { Button } from '../../components/UI/Button';
 
 class AccountHistoryView extends Component {
 
@@ -26,6 +27,10 @@ class AccountHistoryView extends Component {
         })
     }
 
+    goToAccouns = () => {
+        this.props.history.push('/accounts')
+    }
+
     viewHistory = id => {
         console.log(id)
     }
@@ -38,28 +43,29 @@ class AccountHistoryView extends Component {
         const id = this.props.match.params.id
         const accountHistory = this.props.accounts[id].history
         const accountName = this.props.accounts[id].name
+        let historyList
 
-        if (!accountHistory) return (
-            <div className='container'>
-                <div>{ accountName }</div>
-                <div>There is no account history...</div>
-            </div>
-        )
+        if (!accountHistory) {
+            historyList = 'There is no account history...'
+        } else {
+            historyList = Object.keys(accountHistory).map(key => (
+                <HistoryItem
+                    key = { accountHistory[key].id }
+                    name = { accountHistory[key].name }
+                    accNum = { accountHistory[key].accNum }
+                    amount = { accountHistory[key].amount }
+                    category = { accountHistory[key].category }
+                    onClick = { () => this.viewHistory(key) }
+                />
+            ))
+        }
 
-        const historyList = Object.keys(accountHistory).map(key => (
-            <HistoryItem
-                key = { accountHistory[key].id }
-                name = { accountHistory[key].name }
-                accNum = { accountHistory[key].accNum }
-                amount = { accountHistory[key].amount }
-                category = { accountHistory[key].category }
-                onClick = { () => this.viewHistory(key) }
-            />
-        ))
 
         return (
             <div className='container'>
+                <Button text='Back' onClick={this.goToAccouns}/>
                 { accountName }
+                <h3>Account History</h3>
                 { historyList }
             </div>
         )

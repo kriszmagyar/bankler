@@ -2,27 +2,52 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { login, logout } from '../store/actions'
+import { ui } from '../main/js/ui'
 
-import { InputText } from '../components/UI/Inputs';
-import { Button } from '../components/UI/Button';
+import { InputText } from '../components/UI/Inputs'
+import { Button } from '../components/UI/Button'
 
 class SignUpPage extends Component {
+
+    state = {
+        firstname: '',
+        lastname: '',
+        email: '',
+        password: ''
+    }
     
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        console.log(this.state)
+        this.auth()
+    }
+
     auth = () => {
+
         this.props.history.push('/accounts')
         this.props.loginUser()
+        ui.alert({
+            content: 'Login successfull!',
+            type: 'success'
+        })
     }
     
     render() {
 
         return (
             <div className='jumbotron left'>
-                <form className='form small'>
-                    <InputText label='First Name' type='text' name='userFirstName' placeholder='First name'/>
-                    <InputText label='Last Name' type='text' name='userLastName' placeholder='Last name'/>
-                    <InputText label='Email Address' type='email' name='userEmail' placeholder='Email'/>
-                    <InputText label='Password' type='password' name='userPassword' placeholder='Password'/>
-                    <Button text='Sign Up!' onClick={this.auth}/>
+                <form className='form small' onSubmit={this.handleSubmit} noValidate>
+                    <InputText label='First Name' type='text' name='firstname' placeholder='First name' onChange={this.handleChange} value={this.state.firstname} />
+                    <InputText label='Last Name' type='text' name='lastname' placeholder='Last name' onChange={this.handleChange} value={this.state.lastname} />
+                    <InputText label='Email Address' type='email' name='email' placeholder='Email' onChange={this.handleChange} value={this.state.email} />
+                    <InputText label='Password' type='password' name='password' placeholder='Password' onChange={this.handleChange} value={this.state.password} />
+                    <Button text='Sign Up!' />
                 </form>
             </div>
         )
