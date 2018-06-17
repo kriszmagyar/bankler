@@ -5,25 +5,50 @@ import { login, logout } from '../store/actions'
 
 import { InputText } from '../components/UI/Inputs';
 import { Button } from '../components/UI/Button';
+import { ui } from '../main/js/ui'
 
 class LoginPage extends Component {
     
+    state = {
+        email: '',
+        password: ''
+    }
+
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+        console.log(this.state)
+        this.auth()
+    }
+
     auth = () => {
+
         this.props.history.push('/accounts')
         this.props.loginUser()
+        ui.alert({
+            content: 'Login successfull!',
+            type: 'success'
+        })
     }
-    
+
     render() {
+        
+        const Form = (
+            <form className='form small' onSubmit={this.handleSubmit} noValidate>
+                <InputText label='Email address' type='email' name='email' placeholder='Email' onChange={this.handleChange} value={this.state.email}/>
+                <InputText label='Password' type='password' name='password' placeholder='Password' onChange={this.handleChange} value={this.state.password}/>
+                <Button text='Get Started' />
+            </form>
+        )
 
         return (
-            <div className='content-center'>
-                <form>
-                    <InputText type='email' name='userEmail' placeholder='Email'/>
-                    <InputText type='password' name='userPassword' placeholder='Password'/>
-                    {/* <div><a className='small'>Forgot your password?</a></div> */}
-                    <Button text='Get Started' onClick={this.auth}/>
-                    {/* <div><a className='small'>Create account</a></div> */}
-                </form>
+            <div className='jumbotron left'>
+                { Form }
             </div>
         )
     }

@@ -1,6 +1,9 @@
 .spinner-loader {
     display: inline-block;
-    position: relative;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     width: 64px;
     height: 64px;
   }
@@ -15,7 +18,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: orange;
+    background: #008ed6;
     margin: -3px 0 0 -3px;
   }
   .spinner-loader div:nth-child(1) {

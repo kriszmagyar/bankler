@@ -48,7 +48,7 @@ class AccountsView extends Component {
             ))
     
         return (
-            <div>
+            <div className='container'>
                 { Accounts }
             </div>
         )

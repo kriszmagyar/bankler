@@ -16,12 +16,12 @@ class SignUpPage extends Component {
     render() {
 
         return (
-            <div className='content-center'>
-                <form>
-                    <InputText type='text' name='userFirstName' placeholder='First name'/>
-                    <InputText type='text' name='userLastName' placeholder='Last name'/>
-                    <InputText type='email' name='userEmail' placeholder='Email'/>
-                    <InputText type='password' name='userPassword' placeholder='Password'/>
+            <div className='jumbotron left'>
+                <form className='form small'>
+                    <InputText label='First Name' type='text' name='userFirstName' placeholder='First name'/>
+                    <InputText label='Last Name' type='text' name='userLastName' placeholder='Last name'/>
+                    <InputText label='Email Address' type='email' name='userEmail' placeholder='Email'/>
+                    <InputText label='Password' type='password' name='userPassword' placeholder='Password'/>
                     <Button text='Sign Up!' onClick={this.auth}/>
                 </form>
             </div>

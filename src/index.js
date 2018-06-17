@@ -4,9 +4,7 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import './main/css/index.css'
-import './main/css/grid.css'
-import './main/css/reset.css'
+import './main/css/ui.min.css'
 
 import App from './main/App'
 import registerServiceWorker from './main/registerServiceWorker'

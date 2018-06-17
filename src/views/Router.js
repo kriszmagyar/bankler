@@ -8,7 +8,7 @@ import SignUpPage from './SignUpPage';
 import AccountsView from './app/AccountsView'
 import AccountHistoryView from './app/AccountHistoryView'
 import { NoMatchPage } from './NoMatchPage'
-import { NavTop } from '../components/Nav';
+import NavTop from '../components/Nav';
 
 class Router extends Component {
     render() {

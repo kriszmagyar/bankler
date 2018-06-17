@@ -6,13 +6,15 @@ import './Inputs.css'
 export const InputText = props => {
 
     return (
-        <div className='input-group'>
+        <div className='field'>
+            <label>{props.label}</label>
             <input
-                className='input-text'
                 type = { props.type }
                 name = { props.name }
                 placeholder = { props.placeholder }
                 required = { props.required }
+                onChange = { props.onChange }
+                value = { props.value }
             />
         </div>
     )
