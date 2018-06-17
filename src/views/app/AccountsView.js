@@ -11,10 +11,6 @@ import { Loader } from '../../components/Loader'
 
 class AccountsView extends Component {
 
-    state = {
-        isCurrentlyLoading: false
-    }
-
     componentDidMount() {
         this.getAccountData()
     }
@@ -22,28 +18,22 @@ class AccountsView extends Component {
     getAccountData = () => {
         //Checking if the accounts are already loaded
         if (!isEmptyObj(this.props.accounts)) {
-            this.setState({
-                isCurrentlyLoading: false
-            })
-            return false
+            return
         }
         //Fetch the accounts
         const uri = 'users/user/accounts.json'
         axios.get(uri).then(res => {
             this.props.updateAccounts(res.data)
-            this.setState({
-                isCurrentlyLoading: false
-            })
         })
     }
 
     goToAccount = id => {
         this.props.history.push('/accounts/' + id)
     }
-
+    
     render() {
         //Return a Loader if the data is currently loading
-        if (this.state.isCurrentlyLoading) return <Loader />
+        if (isEmptyObj(this.props.accounts)) return <Loader />
 
         //Generate and display the accounts
         const Accounts = Object.keys(this.props.accounts).map(key => (

@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export class AccountHistoryView extends Component {
+class AccountHistoryView extends Component {
     render() {
+
+        const id = this.props.match.params.id
+
         return (
             <div>
-                AccountHistory
+                {this.props.accounts[id].name}
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        accounts: state.accounts
+    }
+}
+
+export default connect(mapStateToProps)(AccountHistoryView)

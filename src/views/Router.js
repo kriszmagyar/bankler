@@ -6,7 +6,7 @@ import { LandingPage } from './LandingPage'
 import LoginPage from './LoginPage'
 import SignUpPage from './SignUpPage';
 import AccountsView from './app/AccountsView'
-import { AccountHistoryView } from './app/AccountHistoryView'
+import AccountHistoryView from './app/AccountHistoryView'
 import { NoMatchPage } from './NoMatchPage'
 import { NavTop } from '../components/Nav';
 
