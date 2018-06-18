@@ -1,4 +1,7 @@
-.logo {
+.nav .brand {
+    padding-bottom: 0;
+}
+.nav .logo {
     background: url('./logo.png');
     width: 92.5px !important;
     height: 30px !important;
