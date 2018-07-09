@@ -29,12 +29,14 @@ const NavTop = props => {
                             <Link className='link' to='/accounts'>Accounts</Link>
                         </li>
                         <li className="item">
+                            <Link className='link' to='/analytics'>Analytics</Link>
+                        </li>
+                        <li className="item">
                             <Link className='link' to='/login'>Login</Link>
                         </li>
                         <li className="item">
                             <Link className='link' to='/signup'>Sign Up</Link>
                         </li>
-                 
                     </ul>
                 </div>
             </div>

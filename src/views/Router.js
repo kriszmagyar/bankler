@@ -7,6 +7,7 @@ import LoginPage from './LoginPage'
 import SignUpPage from './SignUpPage';
 import AccountsView from './app/AccountsView'
 import AccountHistoryView from './app/AccountHistoryView'
+import Analytics from './app/Analytics'
 import { NoMatchPage } from './NoMatchPage'
 import NavTop from '../components/Nav';
 
@@ -22,6 +23,7 @@ class Router extends Component {
                     <Route exact path = '/signup' component = { SignUpPage } />
                     <Route exact path = '/accounts' component = { AccountsView } />
                     <Route exact path = '/accounts/:id' component = { AccountHistoryView } />
+                    <Route exact path = '/analytics' component = { Analytics } />
                     <Route component = { NoMatchPage } />
                 </Switch>
             </div>

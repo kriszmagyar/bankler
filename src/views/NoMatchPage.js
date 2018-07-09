@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 export class NoMatchPage extends Component {
     render() {
         return (
-            <div>
-                404 Error
+            <div className='jumbotron'>
+                <h1>404 Error</h1>
             </div>
         )
     }
