@@ -2,7 +2,12 @@
   "name": "bankler",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "proxy": {
+    "/account": {
+      "target": "http://192.168.99.100:8081",
+      "secure": "false"
+    }
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "npm": "^6.1.0",

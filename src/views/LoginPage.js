@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import { connect } from 'react-redux'
 import { login, logout } from '../store/actions'
@@ -23,7 +24,12 @@ class LoginPage extends Component {
     handleSubmit = e => {
         e.preventDefault()
         console.log(this.state)
-        this.auth()
+
+        axios.post('http://192.168.99.100:8081/account')
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+
+        // this.auth()
     }
 
     auth = () => {
