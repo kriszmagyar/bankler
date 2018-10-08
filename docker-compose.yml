@@ -1,0 +1,29 @@
+version: '0.2'
+services:
+  db:
+    image: azelethabosoldala/microservices:tesztDB
+    restart: always
+    ports: 
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB tesztdb
+      - POSTGRES_USER tesztuser
+      - POSTGRES_PASSWORD tesztuser
+ # rest:
+ #   image: azelethabosoldala/microservices:szar
+ #   ports: 
+ #     - "3412:9090"
+  registration:
+    image: lazr2270/rehab:user
+    ports: 
+      - "8080:8080"
+  login:
+    image: lazr2270/rehab:accounts
+    ports: 
+      - "8081:8080"
+  front:
+    image: kriszmagyar/bankler:frontend
+    ports:
+      - "3000:3000"
+    links:
+      - registration
