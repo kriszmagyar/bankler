@@ -1,5 +1,6 @@
 import axios from 'axios'
 
 export const instance = axios.create({
-    baseURL: 'https://bankler-project.firebaseio.com/'
+    baseURL: '/',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' }
 })

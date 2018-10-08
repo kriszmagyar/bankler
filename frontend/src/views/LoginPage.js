@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import {instance as axios} from '../axios'
 
 import { connect } from 'react-redux'
 import { login, logout } from '../store/actions'
@@ -25,7 +25,7 @@ class LoginPage extends Component {
         e.preventDefault()
         console.log(this.state)
 
-        axios.post('http://192.168.99.100:8081/account')
+        axios.post('/user')
         .then(res => console.log(res))
         .catch(err => console.log(err))
 
