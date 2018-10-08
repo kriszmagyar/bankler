@@ -11,8 +11,10 @@ import { ui } from '../main/js/ui'
 class LoginPage extends Component {
     
     state = {
-        email: '',
-        password: ''
+        email: 'test@test.hu',
+        password: 'asd',
+        firstname: 'krisz',
+        lastname: 'magyar'
     }
 
     handleChange = e => {
@@ -23,9 +25,12 @@ class LoginPage extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(this.state)
 
-        axios.post('/user')
+        axios({
+            method: 'get',
+            url: '/user',
+            params: this.state
+        })
         .then(res => console.log(res))
         .catch(err => console.log(err))
 
