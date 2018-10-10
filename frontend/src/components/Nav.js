@@ -25,21 +25,21 @@ const NavTop = props => {
                         <li className="item">
                             <Link className='link' to='/'>Home</Link>
                         </li>
-                        { props.isLoggedIn ? (
-                            [<li key = {1} className = "item">
+                        { props.isLoggedIn ? ([
+                            <li key = {1} className = "item">
                                 <Link className='link' to='/accounts'>Accounts</Link>
                             </li>,
                             <li key = {2} className="item">
                                 <Link className='link' to='/analytics'>Analytics</Link>
-                            </li>]
-                        ) : (
-                            [<li key = {1} className="item">
+                            </li>
+                        ]) : ([
+                            <li key = {3} className="item">
                                 <Link className='link' to='/login'>Login</Link>
                             </li>,
-                            <li key = {2} className="item">
+                            <li key = {4} className="item">
                                 <Link className='link' to='/signup'>Sign Up</Link>
-                            </li>]
-                        ) }
+                            </li>
+                        ]) }
                     </ul>
                 </div>
             </div>
