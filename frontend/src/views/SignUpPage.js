@@ -50,7 +50,7 @@ class SignUpPage extends Component {
         this.props.history.push('/accounts')
         this.props.loginUser()
         ui.alert({
-            content: 'Login successfull!',
+            content: 'You have created an account successfully!',
             type: 'success'
         })
     }
