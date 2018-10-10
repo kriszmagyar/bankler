@@ -11,45 +11,20 @@ import { Loader } from '../../components/Loader'
 
 class AccountsView extends Component {
 
-    componentDidMount() {
-        this.getAccountData()
-    }
-
-    getAccountData = () => {
-        //Checking if the accounts are already loaded
-        if (!isEmptyObj(this.props.accounts)) {
-            return
-        }
-        //Fetch the accounts
-        const uri = 'users/user/accounts.json'
-        axios.get(uri).then(res => {
-            this.props.updateAccounts(res.data)
-        })
-    }
-
     goToAccount = id => {
         this.props.history.push('/accounts/' + id)
     }
     
     render() {
-        //Return a Loader if the data is currently loading
-        if (isEmptyObj(this.props.accounts)) return <Loader />
-
-        //Generate and display the accounts
-        const Accounts = Object.keys(this.props.accounts).map(key => (
-                <Account
-                    key = { this.props.accounts[key].id }
-                    name = { this.props.accounts[key].name }
-                    currency = { this.props.accounts[key].currency }
-                    cash = { this.props.accounts[key].cash }
-                    number = { this.props.accounts[key].number }
-                    onClick = { () => this.goToAccount(key) }
-                />
-            ))
     
         return (
             <div className='container'>
-                { Accounts }
+                <Account 
+                    name = 'My Account'
+                    currency = 'USD'
+                    cash = { 200000 }
+                    number = '0000-0000-0000'
+                />
             </div>
         )
     }
