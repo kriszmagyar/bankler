@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {instance as axios} from '../axios'
 
 import { connect } from 'react-redux'
 import { login, logout } from '../store/actions'
@@ -10,10 +11,10 @@ import { Button } from '../components/UI/Button'
 class SignUpPage extends Component {
 
     state = {
-        firstname: '',
-        lastname: '',
-        email: '',
-        password: ''
+        firstname: 'Krisz',
+        lastname: 'Magyar',
+        email: 'test@test.hu',
+        password: 'asd'
     }
     
     handleChange = e => {
@@ -24,8 +25,24 @@ class SignUpPage extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(this.state)
-        this.auth()
+        
+        axios({
+            method: 'post',
+            url: '/user',
+            params: this.state
+        })
+        .then(res => {
+            console.log(res)
+            this.auth()
+        })
+        .catch(err => {
+            console.log(err.response)
+            ui.alert({
+                content: err.response.data,
+                type: 'danger'
+            })
+        })
+
     }
 
     auth = () => {

@@ -12,9 +12,7 @@ class LoginPage extends Component {
     
     state = {
         email: 'test@test.hu',
-        password: 'asd',
-        firstname: 'krisz',
-        lastname: 'magyar'
+        password: 'asd'
     }
 
     handleChange = e => {
@@ -31,10 +29,18 @@ class LoginPage extends Component {
             url: '/user',
             params: this.state
         })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        .then(res => {
+            console.log(res)
+            this.auth()
+        })
+        .catch(err => {
+            console.log(err.response)
+            ui.alert({
+                content: err.response.data,
+                type: 'danger'
+            })
+        })
 
-        // this.auth()
     }
 
     auth = () => {
