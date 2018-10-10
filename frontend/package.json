@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "npm": "^6.1.0",
+    "npm": "^6.4.1",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -21,7 +21,10 @@
   },
   "proxy": {
     "/user": {
-      "target": "http://registration:8080"
+      "target": "http://192.168.99.100:8080"
+    },
+    "/account": {
+      "target": "http://192.168.99.100:8081"
     }
   }
 }
