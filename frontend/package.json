@@ -21,7 +21,7 @@
   },
   "proxy": {
     "/user": {
-      "target": "http://localhost:8080"
+      "target": "http://registration:8080"
     },
     "/account": {
       "target": "http://localhost:8081"
